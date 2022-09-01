@@ -1,7 +1,9 @@
 package com.saeyan.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,5 +56,28 @@ public class BoardDAO {
 		}
 		
 		return list;
+	}
+
+
+	public void insertBoard(BoardVO bVo) {
+		String sql = "insert into bboard(num, name, email, pass, title, content) values (board_seq.nextval, ?, ?, ?, ?, ?)";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+	
+			pstmt.setString(1,  bVo.getName());
+			pstmt.setString(2,  bVo.getEmail());
+			pstmt.setString(3,  bVo.getPass());
+			pstmt.setString(4,  bVo.getTitle());
+			pstmt.setString(5,  bVo.getContent());
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
 	}
 }
