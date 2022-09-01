@@ -49,6 +49,8 @@ public class BoardDAO {
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, stmt, rs);
 		}
 		
 		return list;
