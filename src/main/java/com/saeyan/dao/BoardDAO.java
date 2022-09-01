@@ -80,4 +80,55 @@ public class BoardDAO {
 			DBManager.close(conn, pstmt);
 		}
 	}
+	
+	public void updateReadCount(String num) {
+		String sql = "update bboard set readcount=readcount+1 where num=?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt=null;
+		
+		try {
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+	}
+	
+	public BoardVO selectOneBoardByNum(String num) {
+		String sql = "select * from bboard where num=?";
+		
+		BoardVO bVo = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				bVo = new BoardVO();
+
+				bVo.setNum(rs.getInt("num"));
+				bVo.setName(rs.getString("name"));
+				bVo.setPass(rs.getString("pass"));
+				bVo.setEmail(rs.getString("email"));
+				bVo.setTitle(rs.getString("title"));
+				bVo.setContent(rs.getString("content"));
+				bVo.setWritedate(rs.getTimestamp("writedate"));
+				bVo.setReadcount(rs.getInt("readcount"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt);
+		}
+		
+		return bVo;
+	}
 }
