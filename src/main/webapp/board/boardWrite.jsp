@@ -21,7 +21,7 @@
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="password" name = "name">* 필수</td>
+					<td><input type="password" name = "pass">* 필수</td>
 				</tr>
 				<tr>
 					<th>이메일</th>
