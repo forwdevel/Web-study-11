@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.seayan.controller.action.Action;
+import com.saeyan.controller.action.Action;
 
 /**
  * Servlet implementation class BoardServlet

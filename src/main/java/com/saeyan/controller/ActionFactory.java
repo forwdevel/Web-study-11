@@ -1,7 +1,7 @@
 package com.saeyan.controller;
 
+import com.saeyan.controller.action.Action;
 import com.saeyan.controller.action.BoardListAction;
-import com.seayan.controller.action.Action;
 
 public class ActionFactory {
 	private static ActionFactory instance = new ActionFactory();

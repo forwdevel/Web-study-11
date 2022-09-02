@@ -1,4 +1,4 @@
-package com.seayan.controller.action;
+package com.saeyan.controller.action;
 
 import java.io.IOException;
 

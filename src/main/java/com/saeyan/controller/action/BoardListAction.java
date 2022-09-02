@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.saeyan.dao.BoardDAO;
 import com.saeyan.dto.BoardVO;
-import com.seayan.controller.action.Action;
 
 public class BoardListAction implements Action {
 
