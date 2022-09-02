@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.seayan.controller.action.Action;
+
 /**
  * Servlet implementation class BoardServlet
  */
@@ -29,6 +31,13 @@ public class BoardServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String command = request.getParameter("conmmand");
 		System.out.println("BoardServlet에서 요청을 받음을 확인 : " + command);
+		
+		ActionFactory af = ActionFactory.getInstance();
+		Action action = af.getAction(command);
+		
+		if(action != null) {
+			action.execute(request, response);
+		}
 	}
 
 	/**
