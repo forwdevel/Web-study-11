@@ -13,6 +13,7 @@ public class BoardWriteAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("BoardWriteAction.execute() ------------");
 		BoardVO bVo = new BoardVO();
 
 		bVo.setName(request.getParameter("name"));
