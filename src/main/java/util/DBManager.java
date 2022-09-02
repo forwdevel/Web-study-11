@@ -15,9 +15,9 @@ public class DBManager {
 		try {
 			Context initContext = new InitialContext();
 			Context envContext = (Context) initContext.lookup("java:/comp/env");
-			DataSource ds = (DataSource) envContext.lookup("java/myoracle");
+			DataSource ds = (DataSource) envContext.lookup("jdbc/myoracle");
 			conn = ds.getConnection();
-		} catch(Exception e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		return conn;
@@ -28,7 +28,7 @@ public class DBManager {
 			rs.close();
 			stmt.close();
 			conn.close();
-		} catch(Exception e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -37,7 +37,7 @@ public class DBManager {
 		try {
 			stmt.close();
 			conn.close();
-		} catch(Exception e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
