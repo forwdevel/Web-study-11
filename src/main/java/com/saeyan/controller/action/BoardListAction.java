@@ -1,4 +1,4 @@
-package com.seayan.controller.action;
+package com.saeyan.controller.action;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,19 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.saeyan.dao.BoardDAO;
 import com.saeyan.dto.BoardVO;
+import com.seayan.controller.action.Action;
 
 public class BoardListAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void execute(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		String url = "/board/boardList.jsp";
-		
+
 		BoardDAO bDao = BoardDAO.getInstance();
 		List<BoardVO> boardList = bDao.selectAllBoards();
 		request.setAttribute("boardList", boardList);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request,response);
+		dispatcher.forward(request, response);
 	}
-	
 }
