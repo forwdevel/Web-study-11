@@ -27,7 +27,7 @@ public class BoardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String command = request.getParamenter("conmmand");
+		String command = request.getParameter("conmmand");
 		System.out.println("BoardServlet에서 요청을 받음을 확인 : " + command);
 	}
 
